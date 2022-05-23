@@ -27,3 +27,6 @@ button:hover {
   color: steelblue;
   font-size: larger;
 }
+a {
+  all: unset;
+}
