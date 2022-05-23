@@ -1,0 +1,15 @@
+.container {
+  max-width: 960px;
+  margin: 100px auto;
+  padding: 10px;
+}
+.item {
+  background: steelblue;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  margin: 20px;
+  border: skyblue 1px solid;
+  display: grid;
+  border-radius: 15px;
+}
