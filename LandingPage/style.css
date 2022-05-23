@@ -13,3 +13,17 @@
   display: grid;
   border-radius: 15px;
 }
+/* .item:hover {
+  background: green;
+} */
+button {
+  border-radius: 15px;
+  border: skyblue 0px solid;
+  background: steelblue;
+  color: #fff;
+}
+button:hover {
+  background: white;
+  color: steelblue;
+  font-size: larger;
+}
