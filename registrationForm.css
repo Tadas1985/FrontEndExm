@@ -1,0 +1,27 @@
+.container {
+  max-width: 960px;
+  margin: 100px auto;
+  padding: 10px;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.title {
+  text-align: center;
+  color: steelblue;
+}
+#submitBtn {
+  border-radius: 15px;
+  border: skyblue 0px solid;
+  background: steelblue;
+  color: #fff;
+}
+#submitBtn:hover {
+  background: white;
+  color: steelblue;
+  font-size: larger;
+}
+input {
+  border-radius: 15px;
+}
