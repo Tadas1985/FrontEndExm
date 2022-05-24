@@ -5,8 +5,8 @@ const output = document.querySelector('.span2');
 const addToDo = document.querySelector('#add');
 const saveToDo = document.querySelector('#saveToDoCard');
 const saveEditToDo = document.querySelector('#saveEditToDoCard');
-localStorage.setItem('userToDo', 'Audrius Bukis')
-//gaunamas useris kuris prisijungias
+localStorage.setItem('userToDo', 'Tadas Valutis') //gaunamas useris kuris prisijungias
+
 const UserText = document.querySelector('.h1');
 UserText.textContent = user;
 const typeToDo = document.querySelector('#tDType');
@@ -50,7 +50,7 @@ saveToDo.addEventListener('click', () => {
       }
     })
     .then((result) => {
-      console.log(result);
+      //console.log(result);
     })
     .catch((err) => {
       console.log(err);
@@ -67,7 +67,13 @@ function getToDo() {
       return res.json();
     }
   })
-  .then(result => render(result.data)); 
+  .then((result) => {
+    let filteredData = result.data.filter((element) => {
+        return element.nameLastName === user
+    })
+    console.log(filteredData);
+    render(filteredData)
+  }); 
 }
 
 function render(ToDos) {
