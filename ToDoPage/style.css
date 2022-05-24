@@ -1,0 +1,75 @@
+body{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    background: whitesmoke;
+}
+.container{
+    width: 1280px;
+    margin: auto;
+}
+#toDoCardInput{
+    display: none;
+    width: 370px;
+    margin:auto;
+    padding: 10px; 
+    background: whitesmoke;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+}
+.h3ToDoCard{
+    margin: 2px;
+}
+#endDate, #contentText, #tDType{
+    margin: 3px;
+    width: 340px;
+} 
+#contentText{
+    height: 40px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+#saveToDoCard, #closeToDoCard{
+    margin: 3px;
+}
+.label, .h3ToDoCard{
+    margin-left: 5px;
+}
+.toDoCardDiv{
+    width: 370px;
+    margin: 8px;
+    padding: 5px; 
+    background: whitesmoke;
+    border-radius: 5;
+    border: solid 1px gray;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+}
+.toDoCardH1{
+    margin: 5px;
+}
+.toDoContextP{
+    width: 350px;
+    height: 100px;
+    margin: 5px;
+    font-size: 'larger';
+}
+.toDoDelateB, .toDoEditB{
+    margin: 5px;
+    background-color: blue;
+}
+#saveEditToDoCard{
+    display: none;
+}
+#saveToDoCard{
+    display: inline;
+}
+
+.span2{
+    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.span1{
+    margin: 20px;
+}
+.container{
+ margin: 15px
+}
