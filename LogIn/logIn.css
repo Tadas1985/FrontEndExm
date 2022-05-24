@@ -11,18 +11,20 @@ form {
   text-align: center;
   color: steelblue;
 }
-#submitBtn {
-  border-radius: 15px;
-  border: skyblue 0px solid;
-  background: steelblue;
-  color: #fff;
-}
-#submitBtn:hover {
-  background: white;
-  color: steelblue;
-  font-size: larger;
+
+label {
+  margin: 1px auto;
 }
 input {
+  border-color: steelblue;
+  text-align: center;
+  margin: 5px auto;
+  width: 400px;
   border-radius: 15px;
   height: 35px;
 }
+
+input:hover {
+  border-color: blue;
+}
+
