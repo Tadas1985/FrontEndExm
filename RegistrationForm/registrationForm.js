@@ -33,11 +33,4 @@ registrationSubmit.addEventListener("submit", (event) => {
     .catch((err) => {
       console.log(err);
     });
-  //BackToIndex();
 });
-//T
-//t
-// function BackToIndex() {
-//   window.location.href = "/LandingPage/Index.html";
-//TestBranch1
-//}
