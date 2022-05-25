@@ -8,7 +8,7 @@
   color: #fff;
   font-size: 20px;
   padding: 10px;
-  margin: 20px;
+  margin: 5px auto;
   border: skyblue 1px solid;
   display: grid;
   border-radius: 15px;
@@ -17,6 +17,7 @@
   background: green;
 } */
 button {
+  width: 400px;
   border-radius: 15px;
   border: skyblue 0px solid;
   background: steelblue;
@@ -25,7 +26,6 @@ button {
 button:hover {
   background: white;
   color: steelblue;
-  font-size: larger;
 }
 a {
   all: unset;

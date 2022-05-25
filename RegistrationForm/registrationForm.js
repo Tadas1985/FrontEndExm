@@ -2,18 +2,18 @@ let registrationSubmit = document.querySelector("#submit");
 
 registrationSubmit.addEventListener("submit", (event) => {
   event.preventDefault();
-  let fname = document.querySelector("#fname").value;
-  let lName = document.querySelector("#lname").value;
-  let emailAddress = document.querySelector("#email").value;
+  const fname = document.querySelector("#fname");
+  const lName = document.querySelector("#lname");
+  const emailAddress = document.querySelector("#email");
   fetch("https://testapi.io/api/Tadas/resource/exam", {
     method: "POST",
     headers: {
       "Content-type": "application/json",
     },
     body: JSON.stringify({
-      name: fname,
-      lastName: lName,
-      email: emailAddress,
+      name: fname.value,
+      lastName: lName.value,
+      email: emailAddress.value,
     }),
   })
     .then((response) => {
