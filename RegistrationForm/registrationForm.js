@@ -27,6 +27,8 @@ registrationSubmit.addEventListener("submit", (event) => {
     .then((result) => {
       console.log(result);
       fname.value = "";
+      lastName.value = "";
+      emailAddress.value = "";
     })
     .catch((err) => {
       console.log(err);
