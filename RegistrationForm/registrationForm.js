@@ -33,7 +33,7 @@ registrationSubmit.addEventListener("submit", (event) => {
     });
   //BackToIndex();
 });
-
+// Test
 // function BackToIndex() {
 //   window.location.href = "/LandingPage/Index.html";
 
