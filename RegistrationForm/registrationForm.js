@@ -1,4 +1,4 @@
-let registrationSubmit = document.querySelector("#submit");
+let registrationSubmit = document.querySelector("#submitBtn");
 
 registrationSubmit.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -30,9 +30,9 @@ registrationSubmit.addEventListener("submit", (event) => {
     .catch((err) => {
       console.log(err);
     });
-  BackToIndex();
+  //BackToIndex();
 });
 
-function BackToIndex() {
-  window.location.href = "/LandingPage/Index.html";
-}
+// function BackToIndex() {
+//   window.location.href = "/LandingPage/Index.html";
+//}
