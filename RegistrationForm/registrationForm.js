@@ -46,8 +46,9 @@ function getToDo() {
       }
     })
     .then((result) => {
+      console.log(result);
       if (
-        !result.data.name === fname.value ||
+        !result.data.name === fname.value &&
         !result.data.lastName === lName.value
       ) {
         RegisterUser();
