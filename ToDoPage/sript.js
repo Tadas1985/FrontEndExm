@@ -38,7 +38,8 @@ saveToDo.addEventListener('click', () => {
       nameLastName: user,
       toDoType: typeToDo.value,
       toDoContext: contentToDo.value,
-      endDateToDo: endDateToDo.value
+      endDateToDo: endDateToDo.value,
+      toDoDone: 'false'
     })
   })
     .then((response) => {
@@ -55,8 +56,7 @@ saveToDo.addEventListener('click', () => {
     .catch((err) => {
       console.log(err);
     })
-    setTimeout(() => {
-    //inputToDoCard.style.display = "none";    
+    setTimeout(() => {   
     window.location.reload();
     }, 200)  
 })
@@ -69,7 +69,7 @@ function getToDo() {
   })
   .then((result) => {
     let filteredData = result.data.filter((element) => {
-        return element.nameLastName === user
+        return element.nameLastName === user;
     })
     console.log(filteredData);
     render(filteredData)
@@ -91,7 +91,20 @@ function render(ToDos) {
 
         const toDoEndDate = document.createElement('p');
         toDoEndDate.textContent = ToDo.endDateToDo;
-        toDoEndDate.style.margin = '5px';
+        toDoEndDate.className = 'toDoEndDateP';
+        if (ToDo.toDoDone === 'false') {
+          let dateStrig = `${ToDo.endDateToDo.replace(/-/g, ", ")}`;
+          let add1DayToDate = new Date(dateStrig);
+          if (new Date (add1DayToDate.setDate(add1DayToDate.getDate() -1)) < Date.now()){
+            div.style.backgroundColor = 'rgba(221, 199, 125, 0.5)'
+            if (new Date(dateStrig) < Date.now()){
+              div.style.backgroundColor = 'rgba(219, 143, 143, 0.5)'
+            }
+          }
+        }else if (ToDo.toDoDone === 'true'){
+          div.style.backgroundColor = 'rgba(105, 221, 90, 0.5)'
+        };
+        console.log(ToDo.toDoDone);
 
         const delButton = document.createElement('button');
         delButton.textContent = 'DELETE';
@@ -115,7 +128,15 @@ function render(ToDos) {
             endDateToDo.value = ToDo.endDateToDo;
             addToDoH3.textContent = 'Editing To Do Form';
         })
-        div.append(toDoTypeName, toDoContext, toDoEndDate, editButton, delButton);
+        const doneButton = document.createElement('button');
+        doneButton.textContent = 'DONE';
+        doneButton.className = 'toDoDoneB';
+        doneButton.addEventListener('click', (event) => {
+          const elementId = event.target.parentElement.id;
+          seveDoneToDO(elementId, ToDo);
+        })
+
+        div.append(toDoTypeName, toDoContext, toDoEndDate, editButton, delButton, doneButton);
         div.setAttribute('id', ToDo.id);
         output.append(div);
     })
@@ -144,7 +165,8 @@ saveEditToDo.addEventListener('click', () => {
             nameLastName: user,
             toDoType: typeToDo.value,
             toDoContext: contentToDo.value,
-            endDateToDo: endDateToDo.value
+            endDateToDo: endDateToDo.value,
+            toDoDone: 'false'
         })
     })
     .then((response) => {
@@ -162,9 +184,45 @@ saveEditToDo.addEventListener('click', () => {
       console.log(err);
     })
     setTimeout(() => {
-      toDoId = null;
+      //toDoId = null;
       saveToDo.style.display = "none";
       inputToDoCard.style.display = "none"; 
       window.location.reload();
     }, 500)  
 })
+
+
+function seveDoneToDO(toDoId){
+  //console.log(toDoId);
+  let toDoElement = document.getElementById(toDoId);
+fetch(`https://testapi.io/api/ABukis/resource/ToDoList/${toDoId}`, {
+    method: 'PUT',
+    headers: {
+        'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+        nameLastName: user,
+        toDoType: toDoElement.querySelector('.toDoCardH1').textContent,
+        toDoContext: toDoElement.querySelector('.toDoContextP').textContent,
+        endDateToDo: toDoElement.querySelector('.toDoEndDateP').textContent,
+        toDoDone: 'true'
+    })
+})
+.then((response) => {
+  if (response.ok) {
+    console.log('ok');
+    return response.json();
+  } else {
+    console.log('not okay');
+  }
+})
+.then((result) => {
+  console.log(result);
+})
+.catch((err) => {
+  console.log(err);
+})
+setTimeout(() => {
+  window.location.reload();
+}, 500)  
+}
