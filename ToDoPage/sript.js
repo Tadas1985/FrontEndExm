@@ -92,14 +92,7 @@ function render(ToDos) {
         const toDoEndDate = document.createElement('p');
         toDoEndDate.textContent = ToDo.endDateToDo;
         toDoEndDate.style.margin = '5px';
-        let dateStrig = `${ToDo.endDateToDo.replace(/-/g, ", ")}`;
-        let add1DayToDate = new Date(dateStrig);
-        if (new Date (add1DayToDate.setDate(add1DayToDate.getDate() -1)) < Date.now()){
-          div.style.backgroundColor = 'rgba(221, 199, 125, 0.5)'
-          if (new Date(dateStrig) < Date.now()){
-            div.style.backgroundColor = 'rgba(219, 143, 143, 0.5)'
-          }
-        }
+
         const delButton = document.createElement('button');
         delButton.textContent = 'DELETE';
         delButton.className = 'toDoDelateB';
