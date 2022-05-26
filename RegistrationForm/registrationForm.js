@@ -2,6 +2,7 @@ let registrationSubmit = document.querySelector("#submit");
 const fname = document.querySelector("#fname");
 const lName = document.querySelector("#lname");
 const emailAddress = document.querySelector("#email");
+const message = document.querySelector("#message");
 registrationSubmit.addEventListener("submit", (event) => {
   event.preventDefault();
   getToDo();
@@ -47,14 +48,27 @@ function getToDo() {
     })
     .then((result) => {
       console.log(result);
-      if (
-        !result.data.name === fname.value &&
-        !result.data.lastName === lName.value
-      ) {
-        RegisterUser();
-      } else {
+      //-----------------------
+      let isUserExist = result.data.filter((element) => {
+        return element.name === fname.value && element.lastName === lName.value;
+      });
+      console.log(isUserExist);
+      if (isUserExist.length > 0) {
         console.log("parasyk pop upa kad useris jau yra");
-        // parasyk pop upa kad useris jau yra
+        //window.alert("This User already exists");
+        const text = document.createElement("p");
+        text.innerHTML = "This User Already Exist";
+        fname.value = "";
+        lName.value = "";
+        emailAddress.value = "";
+        message.appendChild(text);
+        message.style.color = "red";
+        message.style.textAlign = "center";
+        setTimeout(() => {
+          message.style.display = "none";
+        }, 2000);
+      } else {
+        RegisterUser();
       }
     });
 }
