@@ -54,8 +54,6 @@ function getToDo() {
       });
       console.log(isUserExist);
       if (isUserExist.length > 0) {
-        console.log("parasyk pop upa kad useris jau yra");
-        //window.alert("This User already exists");
         const text = document.createElement("p");
         text.innerHTML = "This User Already Exist";
         fname.value = "";
@@ -63,12 +61,27 @@ function getToDo() {
         emailAddress.value = "";
         message.appendChild(text);
         message.style.color = "red";
+        text.style.fontSize = "40px";
         message.style.textAlign = "center";
         setTimeout(() => {
           message.style.display = "none";
+          window.location = "../Login/login.html";
         }, 2000);
       } else {
         RegisterUser();
+        const text = document.createElement("p");
+        text.innerHTML = "New User is registered";
+        text.style.fontSize = "40px";
+        fname.value = "";
+        lName.value = "";
+        emailAddress.value = "";
+        message.appendChild(text);
+        message.style.color = "green";
+        message.style.textAlign = "center";
+        setTimeout(() => {
+          message.style.display = "none";
+          window.location = "../Login/login.html";
+        }, 2000);
       }
     });
 }
