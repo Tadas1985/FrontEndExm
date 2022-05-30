@@ -20,15 +20,16 @@ body{
 }
 #endDate, #contentText, #tDType{
     margin: 3px;
-    width: 340px;
+    width: 360px;
 } 
 #contentText{
     height: 40px;
     word-wrap: break-word;
     word-break: break-all;
 }
-#saveToDoCard, #closeToDoCard{
+#saveToDoCard, #closeToDoCard, #saveEditToDoCard{
     margin: 3px;
+    width: 370px;
 }
 .label, .h3ToDoCard{
     margin-left: 5px;
@@ -38,7 +39,7 @@ body{
     margin: 8px;
     padding: 5px; 
     background: whitesmoke;
-    border-radius: 5;
+    border-radius: 5px;
     border: solid 1px gray;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
 }
@@ -46,14 +47,16 @@ body{
     margin: 5px;
 }
 .toDoContextP{
-    width: 350px;
+    width: 370px;
     height: 100px;
     margin: 5px;
     font-size: 'larger';
 }
-.toDoDelateB, .toDoEditB{
-    margin: 5px;
-    background-color: blue;
+.toDoDelateB, .toDoEditB, .toDoDoneB{
+    width: 370px;
+    margin: 5px auto;
+    border: solid 1px steelblue;
+    background-color: steelblue;
 }
 #saveEditToDoCard{
     display: none;
@@ -72,4 +75,14 @@ body{
 }
 .container{
  margin: 15px
+}
+.button{
+    width: 200px;
+    background: steelblue;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    margin: 5px auto;
+    border: skyblue 1px solid;
+    border-radius: 15px;
 }
