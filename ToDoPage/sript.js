@@ -1,12 +1,11 @@
 let toDoId;
-let user = localStorage.getItem('userToDo');
 const inputToDoCard = document.querySelector("#toDoCardInput");
 const output = document.querySelector('.span2');
 const addToDo = document.querySelector('#add');
 const saveToDo = document.querySelector('#saveToDoCard');
 const saveEditToDo = document.querySelector('#saveEditToDoCard');
-localStorage.setItem('userToDo', 'Audrius Bukis') //gaunamas useris kuris prisijungias
-
+///localStorage.setItem('userToDo', 'Tadas Valutis') //gaunamas useris kuris prisijungias
+let user = localStorage.getItem('userToDo');
 const UserText = document.querySelector('.h1');
 UserText.textContent = user;
 const typeToDo = document.querySelector('#tDType');
@@ -23,8 +22,8 @@ document.querySelector("#closeToDoCard").addEventListener("click", () => {
   document.querySelector("#toDoCardInput").style.display = "none";
 });
 document.querySelector("#logoff").addEventListener("click", () => {
-  // cia turetu buti linko atidarymas i pirma puslapi
-  console.log('log off buttton')
+  localStorage.clear();
+  //console.log('log off buttton')
 });
 
 saveToDo.addEventListener('click', () => {
