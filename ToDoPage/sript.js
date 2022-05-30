@@ -69,8 +69,10 @@ function getToDo() {
     let filteredData = result.data.filter((element) => {
         return element.nameLastName === user;
     })
-    console.log(filteredData);
-    render(filteredData)
+    let sortedData = filteredData.sort((a, b) => 
+        Date.parse(a.endDateToDo.replace(/-/g, ", ")) - 
+        Date.parse(b.endDateToDo.replace(/-/g, ", ")))
+    render(sortedData)
   }); 
 }
 function render(ToDos) {
