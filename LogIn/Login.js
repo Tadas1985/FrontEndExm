@@ -21,12 +21,11 @@ function CheckUser() {
       });
       console.log(isUserExist);
       if (isUserExist.length > 0) {
-        localStorage.setItem("userToDo", `${fname.value}  ${lName.value}`);
+        localStorage.setItem("userToDo", `${fname.value} ${lName.value}`);
         fname.value = "";
         lName.value = "";
+        window.location = "../ToDoPage/Index.html";
       } else {
-        fname.value = "";
-        lName.value = "";
         const text = document.createElement("p");
         text.innerHTML = "This User does not exist, please register";
         fname.value = "";
@@ -34,9 +33,11 @@ function CheckUser() {
 
         message.appendChild(text);
         message.style.color = "red";
+        text.style.fontSize = "40px";
         message.style.textAlign = "center";
         setTimeout(() => {
           message.style.display = "none";
+          window.location = "../RegistrationForm/registrationForm.html";
         }, 2000);
       }
     });
